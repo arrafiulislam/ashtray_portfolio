@@ -28,6 +28,13 @@ const Hero = () => {
         return () => clearInterval(typingEffect);
     }, [index]);
 
+    const scrollToBottom = () => {
+        window.scrollTo({
+          top: document.documentElement.scrollHeight, // Scroll to the bottom
+          behavior: 'smooth', // Smooth scroll
+        });
+      };
+
     return (
         <section className="hero-section">
             <div className="hero-content">
@@ -36,7 +43,7 @@ const Hero = () => {
                 <h2 className='hero-des'>Taking timeless shots that goes beyond the moment.</h2>
                 {/* <p>Taking timeless shots that goes beyond the moment.</p> */}
                 <div className="hero-buttons">
-                    <button className="portfolio-btn">Enquire Now<i className="fa fa-arrow-down"></i></button>
+                    <button className="portfolio-btn" onClick={scrollToBottom}>Enquire Now<i className="fa fa-arrow-down"></i></button>
                    
                 </div>
             </div>

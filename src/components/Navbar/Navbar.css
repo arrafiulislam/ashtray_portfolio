@@ -4,108 +4,59 @@ body {
   margin: 0;
   font-family: "Merriweather", serif;
 }
-.nav-logo{
+
+.nav-logo {
   height: 80px;
 }
-.logo-name{
+
+.logo-name {
   color: #000;
 }
+
 .menu-container {
-  position: fixed; /* Changed from absolute to fixed */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 99;
-  opacity: 0.9;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   background-color: rgba(240, 248, 255, 0);
   width: 100%;
-  color: white;
-  padding: 1rem;
-  padding-right: 8rem;
-  padding-left: 8rem;
-  backdrop-filter: blur(5px); /* Optional: Adds a nice blur effect to the background */
+  padding: 1rem 8rem;
 }
 
 .logo {
-  margin-right: 2rem; 
-  font-size: 25px;
-  color: #000;
   display: flex;
-  align-items: center
+  align-items: center;
 }
 
 .menu-button {
-  margin-right: 0; 
-}
-
-
-
-.menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  background: black;
-  /* opacity: 0.95; */
-  color: #fafafa;
-  transition: height 0.3s ease;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.menu.open {
-  height: 100%;
-}
-
-.menu-list {
-  padding-top: 8rem;
-  margin: 0 auto;
-  width: 400px;
-  
-
-}
-
-.menu-item-container {
-  opacity: 0;
-  animation: 1s appear forwards;
- 
-}
-
-.menu-item {
-  text-align: center;
-  font-family: "Merriweather", serif;
-  font-size: 2rem;
-  padding: 3rem 0;
-  margin: 0 6%;
-  cursor: pointer;
-  color: #fafafa;
-  transition: color 0.2s ease-in-out;
-  animation: 0.5s slideIn forwards;
-  
-}
-
-.menu-item.hover {
-  color: gray;
-}
-
-
-
-.menu-button {
-  height: 32px;
-  width: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   padding: 4px;
-  
+  margin-right: 20px; /* Adjust spacing */
 }
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #000;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  color: gray;
+  transform: scale(1.2);
+}
+
 
 .line {
   height: 2px;
@@ -137,7 +88,50 @@ body {
   transform: translateX(-1px) rotate(-45deg);
 }
 
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  color: #fafafa;
+  transition: height 0.3s ease;
+  z-index: 2;
+  overflow: hidden;
+}
 
+.menu.open {
+  height: 100%;
+}
+
+.menu-list {
+  padding-top: 8rem;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.menu-item-container {
+  opacity: 0;
+  animation: 1s appear forwards;
+}
+
+.menu-item {
+  text-align: center;
+  font-size: 2rem;
+  padding: 3rem 0;
+  margin: 0 6%;
+  cursor: pointer;
+  color: #fafafa;
+  transition: color 0.2s ease-in-out;
+  animation: 0.5s slideIn forwards;
+}
+
+.menu-item.hover {
+  color: gray;
+}
 
 @keyframes appear {
   0% {
@@ -154,14 +148,5 @@ body {
   }
   100% {
     transform: translateX(0);
-  }
-}
-
-@keyframes shrink {
-  0% {
-    width: 95%;
-  }
-  100% {
-    width: 90%;
   }
 }

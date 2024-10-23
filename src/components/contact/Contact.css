@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     justify-content: center; 
-    align-items: baseline;
+    align-items: center;
     padding: 150px 50px;
     background-image: url('../../assets/bg2.jpg');
     background-size: cover;
@@ -13,11 +13,26 @@
   
   .contact-details, .quick-contact {
     flex: 1;
-    max-width: 35%; 
+    max-width: 30%; 
   }
   
   .contact-details {
     padding-right: 20px;
+    height: 400px;
+    border-radius: 15px; 
+    overflow: hidden; 
+    
+    
+  }
+  
+  .contact-details iframe {
+    border-radius: 15px; 
+    filter: grayscale(20%); 
+    transition: filter 0.3s ease;
+  }
+  
+  .contact-details iframe:hover {
+    filter: grayscale(0); 
   }
   
   .quick-contact {
@@ -39,17 +54,19 @@
   }
   .contact-form input,
   .contact-form textarea {
-    background-color: rgba(75, 72, 72, 0.603);
+    background: rgba(0, 0, 0, 0.582); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
     border: none;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     padding: 10px;
     color: white;
     font-size: 1rem;
-    width: 90%; 
-    max-width: 600px; 
-    border-radius: 10px;
+    width: 80%; 
+
   }
-  
+.form-label{
+    margin-bottom: 10px;
+}
  
   .contact-form input::placeholder,
   .contact-form textarea::placeholder {

@@ -5,18 +5,18 @@ const Testimonial = () => {
   const testimonials = [
     {
       text: " The Team at Ashtray was so supportive throughout our wedding. They really took their time to understand us as a couple and how we wanted to capture the moment",
-      name: "Rakin & Raidah",
-      title: "Team Leader"
+      name: "",
+      title: "Rakin & Raidah"
     },
     {
       text: "The Team at Ashtray was so supportive throughout our wedding. They really took their time to understand us as a couple and how we wanted to capture the moment",
-      name: "Rakin & Raidah",
-      title: "Product Manager"
+      name: "",
+      title: "Rakin & Raidah"
     },
     {
       text: "The Team at Ashtray was so supportive throughout our wedding. They really took their time to understand us as a couple and how we wanted to capture the moment",
-      name: "Rakin & Raidah",
-      title: "CEO"
+      name: "",
+      title: "Rakin & Raidah"
     }
   ];
 
@@ -46,11 +46,11 @@ const Testimonial = () => {
       <div className="testimonial-overlay">
         <div className="testimonial-header">
           <h3 className="testimonial-heading">Testimonials</h3>
-          <h2 className="testimonial-title">What Clients Are Saying</h2>
+          <hr class="styled-hr" />
+
         </div>
         <div className={`testimonial-container ${fadeIn ? 'fade-in' : 'fade-out'}`}>
           <p className="testimonial-text">"{text}"</p>
-          <p className="client-name">{name}</p>
           <p className="client-title">{title}</p>
         </div>
         <button className="arrow left-arrow" onClick={handlePrev}>

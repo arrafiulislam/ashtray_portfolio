@@ -22,17 +22,35 @@
 }
 
 .service-image {
+    position: relative; 
     flex: 1;
     max-width: 50%;
     overflow: hidden; 
     border-radius: 10px;
-
 }
 
 .service-image img {
-    width: 80%;
-    height: 70vh;
-    transition: opacity 0.3s ease-in-out; 
+    width: 100%; 
+    height: 70vh; 
+    object-fit: cover; 
+    transition: transform 0.3s ease-in-out; 
+}
+
+.service-image:hover img {
+    transform: scale(1.1); 
+}
+
+
+.service-name-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .service-titles {
@@ -60,18 +78,14 @@
 }
 
 .service-details {
-    padding: 10px 0;
-    font-size: 20px;
-    line-height: 30px;
-    border-bottom: 1px solid #fff;
-    opacity: 0; /* Initially hidden */
-    max-height: 0; /* Initially hidden */
-    overflow: hidden; /* Prevent content overflow */
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition for dropdown */
+    margin-top: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
 }
 
-/* This class will be applied when the details are visible */
 .service-details.open {
-    opacity: 1; /* Make visible */
-    max-height: 300px; /* Set a maximum height (adjust as necessary) */
+    opacity: 1;
+    max-height: 500px; 
 }
