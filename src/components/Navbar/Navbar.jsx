@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './Navbar.css';
+import logo from '../../assets/logo.png'
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -32,8 +33,10 @@ const Navbar = () => {
     return (
       <div>
         <div className="menu-container">
-          <div className="logo">Ashtray <span className='aqua'> <br />Photography</span> </div> 
+          <div className="logo"><img className='nav-logo' src={logo} alt=""/> <div className='logo-name'>Ashtray <br />Photography</div></div> 
+         
           <MenuButton open={menuOpen} onClick={handleMenuClick} /> 
+
         </div>
         <Menu open={menuOpen}>{menuItems}</Menu>
         <div className={`body ${menuOpen ? 'blur' : ''}`}></div>

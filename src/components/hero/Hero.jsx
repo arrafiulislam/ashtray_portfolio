@@ -32,12 +32,12 @@ const Hero = () => {
         <section className="hero-section">
             <div className="hero-content">
               <img className='hero-logo' src={logo} alt="" />
-                <h2>{typedString}</h2>
-                <p>we believe in the power of photography to
-                    capture life's most precious moments.</p>
+                {/* <h2 className='hero-heading'>Ashtray</h2> */}
+                <h2 className='hero-des'>Taking timeless shots that goes beyond the moment.</h2>
+                {/* <p>Taking timeless shots that goes beyond the moment.</p> */}
                 <div className="hero-buttons">
-                    <button className="portfolio-btn">View Portfolio <i className="fa fa-arrow-down"></i></button>
-                    <button className="contact-btn">Contact Me <i className="fa fa-arrow-down"></i></button>
+                    <button className="portfolio-btn">Enquire Now<i className="fa fa-arrow-down"></i></button>
+                   
                 </div>
             </div>
         </section>

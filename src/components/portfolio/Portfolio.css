@@ -32,7 +32,7 @@
 }
 
 .first-column img {
-    height: 50vh;
+    height: 49.5vh;
 }
 
 .second-column img,
@@ -43,6 +43,7 @@
 .img-container {
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .img-container:hover img {
@@ -56,7 +57,7 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 22px;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;

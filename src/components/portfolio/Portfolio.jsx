@@ -13,25 +13,25 @@ const Portfolio = () => {
                 <div className="first-column">
                     <div className="img-container">
                         <img src={img1} alt="Image 1" />
-                        <span className="category">Category 1</span>
+                        <span className="category">Automotive</span>
                     </div>
                     <div className="img-container">
                         <img src={img2} alt="Image 2" />
-                        <span className="category">Category 2</span>
+                        <span className="category">Product</span>
                     </div>
                 </div>
 
                 <div className="second-column">
                     <div className="img-container">
                         <img src={img3} alt="Large Image" />
-                        <span className="category">Category 3</span>
+                        <span className="category">Potrait</span>
                     </div>
                 </div>
 
                 <div className="third-column">
                     <div className="img-container">
                         <img src={img4} alt="Another Large Image" />
-                        <span className="category">Category 4</span>
+                        <span className="category">Corporate Events</span>
                     </div>
                 </div>
             </div>

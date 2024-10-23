@@ -1,0 +1,77 @@
+.service-section {
+    display: flex;
+    flex-direction: column; 
+    background-color: #000;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    align-items: center; 
+    color: white;
+}
+
+.service-title {
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+.service-content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.service-image {
+    flex: 1;
+    max-width: 50%;
+    overflow: hidden; 
+    border-radius: 10px;
+
+}
+
+.service-image img {
+    width: 80%;
+    height: 70vh;
+    transition: opacity 0.3s ease-in-out; 
+}
+
+.service-titles {
+    flex: 1;
+    margin-left: 50px;
+}
+
+.services-heading {
+    color: white;
+    font-size: 48px; 
+}
+
+.service-header {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.dropdown-icon {
+    font-size: 18px;
+}
+
+.service-details {
+    padding: 10px 0;
+    font-size: 20px;
+    line-height: 30px;
+    border-bottom: 1px solid #fff;
+    opacity: 0; /* Initially hidden */
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Prevent content overflow */
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition for dropdown */
+}
+
+/* This class will be applied when the details are visible */
+.service-details.open {
+    opacity: 1; /* Make visible */
+    max-height: 300px; /* Set a maximum height (adjust as necessary) */
+}

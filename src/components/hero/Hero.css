@@ -7,17 +7,20 @@
   background-size: 100% ; /* Full width and height without cropping */
   color: #000;
   text-align: center;
+  
 }
-
+.hero-content .hero-heading{
+  font-size: 60px;
+}
 
   .hero-content {
     max-width: 800px;
     position: relative;
   }
   
-  .hero-content h1 {
+  .hero-des{
     font-size: 48px;
-    font-weight: bold;
+    
     margin-bottom: 20px;
     position: relative;
    
@@ -47,6 +50,7 @@
   }
   .hero-logo{
     height: 200px;
+    margin-bottom:20px;
     
   }
   .hero-content p {
