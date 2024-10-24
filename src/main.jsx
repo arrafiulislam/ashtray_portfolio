@@ -7,6 +7,8 @@ import {
 import './index.css'
 import Main from './layout/Main.jsx';
 import Home from './layout/Home.jsx';
+import Gallery from './components/gallery/Gallery.jsx';
+import GalleryLayout from './layout/GalleryLayout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,9 +19,25 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>
       },
+      {
+        path: "/gallery",
+        element: <Gallery></Gallery>
+      },
      
     ]
   },
+  {
+    path: "/gallerylayout",
+    element: <GalleryLayout></GalleryLayout>,
+    children: [
+      {
+        path: "gallery",
+        element: <Gallery></Gallery>
+      },
+    
+    ]
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
