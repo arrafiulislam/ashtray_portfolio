@@ -1,9 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
-body {
-  margin: 0;
-  font-family: "Merriweather", serif;
-}
 
 .nav-logo {
   height: 80px;
@@ -17,14 +12,34 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 999; /* Increase z-index */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(240, 248, 255, 0);
+  background-color: rgba(240, 248, 255, 0); 
   width: 100%;
   padding: 1rem 8rem;
 }
+
+.menu {
+  position: fixed; /* Change to fixed to ensure it covers entire viewport */
+  top: 0;
+  left: 0;
+  z-index: 999; /* Ensure the menu is also on top */
+  height: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  color: #fafafa;
+  transition: height 0.3s ease;
+  overflow: hidden;
+}
+
+.menu.open {
+  height: 100vh; /* Make sure it covers the whole screen when open */
+}
+
 
 .logo {
   display: flex;
@@ -40,10 +55,24 @@ body {
   padding: 4px;
   margin-right: 20px; /* Adjust spacing */
 }
+/* CSS for close button */
+.close-menu-btn {
+  position: absolute;
+  top: 40px; 
+  right: 150px; 
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+
+
 
 .social-icons {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .social-icon {
@@ -86,25 +115,6 @@ body {
 
 .line-bottom.rotate-reverse {
   transform: translateX(-1px) rotate(-45deg);
-}
-
-.menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  background: black;
-  color: #fafafa;
-  transition: height 0.3s ease;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.menu.open {
-  height: 100%;
 }
 
 .menu-list {
@@ -150,3 +160,50 @@ body {
     transform: translateX(0);
   }
 }
+
+
+@media (max-width: 575.98px) {
+      .menu-container{
+        padding: 0;
+        
+      }
+      .nav-logo{
+        height: 50px;
+      }
+      .logo-name{
+        font-size: 14px;
+      }
+      .social-icon{
+        font-size: 1.2rem;
+      }
+      .menu-list{
+        padding-top: 4rem;
+      }
+      .menu-item {
+        font-size: 1.2rem;
+        padding: 2rem 0;
+      }
+      .close-menu-btn{
+        right: 0;
+        top: 20px;
+      }
+ }
+
+@media (max-width: 767.98px) {
+
+ }
+
+
+@media (max-width: 991.98px) { 
+
+ }
+
+
+@media (max-width: 1199.98px) { 
+
+ }
+
+
+@media (max-width: 1399.98px) { 
+
+ }

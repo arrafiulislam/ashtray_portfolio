@@ -1,6 +1,6 @@
 import React from 'react';
 import Gallery from '../components/gallery/Gallery.jsx'
-import Navbar from '../components/Navbar/Navbar.jsx';
+import Footer from '../components/footer/Footer.jsx';
 
 const GalleryLayout = () => {
     return (
@@ -8,6 +8,7 @@ const GalleryLayout = () => {
            
             <div style={{ backgroundColor: '#000' }}>
             <Gallery></Gallery>
+            <Footer></Footer>
             </div>
            
         </div>

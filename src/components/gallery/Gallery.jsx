@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { motion, useTransform, useScroll } from 'framer-motion';
 import './Gallery.css';
 import img1 from '../../assets/portfolio/img1.jpg';
 import img2 from '../../assets/portfolio/img2.jpg';
@@ -10,6 +11,7 @@ import img7 from '../../assets/gallery/img7.jpg';
 import img8 from '../../assets/gallery/img8.jpg';
 import img9 from '../../assets/gallery/img9.jpg';
 import img10 from '../../assets/gallery/img10.jpg';
+import logo from '../../assets/logowhite.png';
 
 const categories = ["All", "Wedding", "Portrait", "Automotive", "Product"];
 
@@ -27,39 +29,67 @@ const Gallery = () => {
     { src: img8, category: 'Wedding' },
     { src: img9, category: 'Automotive' },
     { src: img10, category: 'Automotive' },
-   
   ];
-
 
   const filteredImages = selectedCategory === "All"
     ? images
     : images.filter((image) => image.category === selectedCategory);
 
   return (
-    <div className="gallery">
-    
-      <nav className="category-nav">
-        {categories.map((category) => (
-          <button 
-            key={category} 
-            onClick={() => setSelectedCategory(category)} 
-            className={selectedCategory === category ? "active" : ""}
-          >
-            {category}
-          </button>
-        ))}
-      </nav>
-
-      {/* Gallery Title */}
-      <h1 className="gallery-title">Gallery</h1>
-
-      {/* Gallery Grid */}
-      <div className="gallery-grid">
-        {filteredImages.map((image, index) => (
-          <img key={index} src={image.src} alt={`Gallery ${index}`} className="gallery-image" />
-        ))}
+    <>
+      <div className="menu-container">
+        <div className="logo">
+          <img className='nav-logo' src={logo} alt="" />
+          <div className='logo-name1'>Ashtray <br />Photography</div>
+        </div>
       </div>
-    </div>
+
+      <div className="gallery-page">
+        <h1 className="gallery-title">Gallery</h1>
+
+        {/* Category Navigation */}
+        <nav className="category-nav">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={selectedCategory === category ? "active" : ""}
+            >
+              {category}
+            </button>
+          ))}
+        </nav>
+
+    
+        <HorizontalScrollGallery images={filteredImages} />
+      </div>
+    </>
+  );
+};
+
+const HorizontalScrollGallery = ({ images }) => {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: targetRef });
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+
+  return (
+    <section ref={targetRef} className="scroll-gallery-container">
+      <div className="sticky-wrapper">
+        <motion.div style={{ x }} className="horizontal-scroll">
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              className="scroll-card"
+              style={{
+                backgroundImage: `url(${image.src})`,
+              }}
+            >
+             
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

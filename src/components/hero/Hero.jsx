@@ -42,7 +42,7 @@ const Hero = () => {
                 {/* <h2 className='hero-heading'>Ashtray</h2> */}
                 <h2 className='hero-des'>Taking timeless shots that goes beyond the moment.</h2>
                 {/* <p>Taking timeless shots that goes beyond the moment.</p> */}
-                <div className="hero-buttons">
+                <div className="hero-buttons ">
                     <button className="portfolio-btn" onClick={scrollToBottom}>Enquire Now<i className="fa fa-arrow-down"></i></button>
                    
                 </div>

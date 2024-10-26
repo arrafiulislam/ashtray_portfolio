@@ -2,14 +2,15 @@
   position: relative;
   display: flex;
   padding-bottom: 50px;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
-  background-color: #000000f6;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.97) 100%);
   overflow: hidden;
   height: 60vh;
 }
+
 .styled-hr {
   width: 200px; 
   border: none; 
@@ -105,4 +106,12 @@
 
 .arrow:hover {
   color: #ccc;
+}
+@media (max-width: 575.98px){
+  .testimonial-container{
+    max-width: 300px;
+  }
+  .testimonial-heading{
+    font-size: 34px;
+  }
 }

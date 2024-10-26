@@ -8,14 +8,14 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handleMenuClick = () => {
-        setMenuOpen(!menuOpen);
+        setMenuOpen(!menuOpen); // Toggle the state
     };
-  
+
     const handleLinkClick = (path) => {
-        setMenuOpen(false);
+        setMenuOpen(false); // Close the menu when a link is clicked
         navigate(path);  
     };
-  
+
     const menu = [
         { name: 'About Us', link: '/about' },
         { name: 'Our Products', link: '/products' },
@@ -29,32 +29,28 @@ const Navbar = () => {
             {item.name}
         </MenuItem>
     ));
-  
+
     return (
         <div>
             <div className="menu-container">
                 <div className="logo">
-                    <img className='nav-logo' src={logo} alt="" /> 
+                    <img className='nav-logo' src={logo} alt="Logo" /> 
                     <div className='logo-name'>Ashtray <br />Photography</div>
                 </div> 
                 <div className="social-icons">
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-instagram social-icon"></i>
                     </a>
-                    <a href=""></a>
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-facebook social-icon"></i>
                     </a>
-                    <a href=""></a>
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-twitter social-icon"></i>
                     </a>
-                    <a href=""></a> <a href=""></a>
                     <MenuButton open={menuOpen} onClick={handleMenuClick} />
-
                 </div>
             </div>
-            <Menu open={menuOpen}>{menuItems}</Menu>
+            <Menu open={menuOpen} closeMenu={handleMenuClick}>{menuItems}</Menu> {/* Added closeMenu prop */}
             <div className={`body ${menuOpen ? 'blur' : ''}`}></div>
         </div>
     );
@@ -77,9 +73,13 @@ const MenuItem = ({ delay, children, onClick }) => {
     );
 };
 
-const Menu = ({ open, children }) => (
+const Menu = ({ open, closeMenu, children }) => (
     <div className={`menu ${open ? 'open' : ''}`}>
-        <div className="menu-list">{children}</div>
+        <div className="menu-list">
+            {children}
+            
+            {open && <button className="close-menu-btn" onClick={closeMenu}><i class="fa-solid fa-xmark fa-lg"></i></button>}
+        </div>
     </div>
 );
 
