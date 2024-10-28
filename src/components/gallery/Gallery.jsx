@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useTransform, useScroll } from 'framer-motion';
 import './Gallery.css';
+import Contact from '../contact/Contact.jsx';
 import img1 from '../../assets/portfolio/img1.jpg';
 import img2 from '../../assets/portfolio/img2.jpg';
 import img3 from '../../assets/portfolio/img3.jpg';
@@ -17,6 +18,7 @@ const categories = ["All", "Wedding", "Portrait", "Automotive", "Product"];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedImage, setSelectedImage] = useState(null); // New state for modal image
 
   const images = [
     { src: img1, category: 'Automotive' },
@@ -38,16 +40,15 @@ const Gallery = () => {
   return (
     <>
       <div className="menu-container">
-        <div className="logo">
-          <img className='nav-logo' src={logo} alt="" />
-          <div className='logo-name1'>Ashtray <br />Photography</div>
-        </div>
+        <a href="/"> <div className="logo">
+          <img className='nav-logo' src={logo} alt="Focult Media" />
+          <div className='logo-name1'>Focult Media</div>
+        </div></a>
       </div>
 
       <div className="gallery-page">
         <h1 className="gallery-title">Gallery</h1>
 
-        {/* Category Navigation */}
         <nav className="category-nav">
           {categories.map((category) => (
             <button
@@ -60,17 +61,25 @@ const Gallery = () => {
           ))}
         </nav>
 
-    
-        <HorizontalScrollGallery images={filteredImages} />
+        <HorizontalScrollGallery images={filteredImages} onImageClick={setSelectedImage} />
       </div>
+
+      {selectedImage && (
+        <div className="modal" onClick={() => setSelectedImage(null)}>
+          <img src={selectedImage} alt="Selected" className="modal-image" />
+          <button className="close-button" onClick={() => setSelectedImage(null)}><i className="fa-solid fa-xmark fa-lg"></i></button>
+        </div>
+      )}
+      
+      <Contact />
     </>
   );
 };
 
-const HorizontalScrollGallery = ({ images }) => {
+const HorizontalScrollGallery = ({ images, onImageClick }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: targetRef });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
   return (
     <section ref={targetRef} className="scroll-gallery-container">
@@ -83,8 +92,8 @@ const HorizontalScrollGallery = ({ images }) => {
               style={{
                 backgroundImage: `url(${image.src})`,
               }}
+              onClick={() => onImageClick(image.src)} 
             >
-             
             </motion.div>
           ))}
         </motion.div>

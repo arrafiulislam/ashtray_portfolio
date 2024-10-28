@@ -6,17 +6,23 @@ import Testimonial from '../components/testimonial/Testimonial.jsx';
 import Contact from '../components/contact/Contact.jsx';
 import Footer from '../components/footer/Footer.jsx';
 
-
 const Home = () => {
     return (
         <div>
-            <Hero></Hero>
-            <Portfolio></Portfolio>
-            <Services></Services>
-            <Testimonial></Testimonial>
-            <Contact></Contact>
-            <Footer></Footer>
-      
+            <Hero />
+            <div id="portfolio">
+                <Portfolio />
+            </div>
+            <div id="services">
+                <Services />
+            </div>
+            <div id="testimonials">
+                <Testimonial />
+            </div>
+            <div id="contact">
+                <Contact />
+            </div>
+            <Footer />
         </div>
     );
 };

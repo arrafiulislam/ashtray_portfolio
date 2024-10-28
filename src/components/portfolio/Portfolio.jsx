@@ -17,7 +17,7 @@ const Portfolio = () => {
                         <span className="category">Automotive</span>
                     </div>
                     <div className="img-container">
-                    <Link to="/gallery" >  <img src={img2} alt="Image 2" /></Link>
+                    <Link to="/gallerylayout" >  <img src={img2} alt="Image 2" /></Link>
                         <span className="category">Product</span>
                     </div>
                 </div>

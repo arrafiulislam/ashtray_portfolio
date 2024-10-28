@@ -11,7 +11,7 @@ const Footer = () => {
             <footer className="footer">
                 <div className="container">
                     <p className="small mb-0 text-light text-center footer-text">
-                        &copy; {currentYear} || Copyright : Ashley Photography || 
+                        &copy; {currentYear} || Copyright : Focult Media || 
                        
                     </p>
                 </div>

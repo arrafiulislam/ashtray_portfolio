@@ -1,6 +1,6 @@
 .contact-section {
   padding: 100px 50px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.97) 0%, rgba(0, 0, 0, 0.96) 100%);
+  background: linear-gradient(180deg, rgb(0, 0, 0.8) 98%, rgba(0, 0, 0, 0.78) 100%);
   color: #fff;
  
 }
@@ -66,7 +66,7 @@
     resize: none;
   }
   
-  .contact-form button {
+  .submit-btn{
     background-color: rgba(90, 88, 88, 0.801);
     color: white;
     border: none;
@@ -82,11 +82,11 @@
     transition: transform 0.2s ease-in-out;
   }
   
-  .contact-form button:hover {
+  .submit-btn:hover {
     transform: scale(1.05);
   }
   
-  .contact-form button span {
+  .submit-btn span {
     margin-left: 10px;
     font-size: 1.2rem;
   }
@@ -105,7 +105,7 @@
     .contact-form textarea {
       font-size: 0.8rem;
     }
-    .contact-form button {
+    .submit-btn{
       width: auto;
       font-size: 0.8rem;
       
@@ -115,7 +115,7 @@
     .quick-contact{
       width: 80%;
     }
-    .contact-form button {
+    .submit-btn{
       width: auto;
       font-size: 0.8rem;
       
@@ -139,7 +139,7 @@
   .quick-contact{
     width: 60%;
   }
-  .contact-form button {
+  .submit-btn {
     width: auto;
     font-size: 0.8rem;
     
@@ -151,7 +151,7 @@
   .quick-contact{
     width: 60%;
   }
-  .contact-form button {
+  .submit-btn {
     width: auto;
     font-size: 0.8rem;
     

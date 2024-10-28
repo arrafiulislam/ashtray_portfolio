@@ -10,6 +10,7 @@ import Home from './layout/Home.jsx';
 import Gallery from './components/gallery/Gallery.jsx';
 import GalleryLayout from './layout/GalleryLayout.jsx';
 
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -9,10 +9,10 @@
 }
 
 .menu-container {
-  position: fixed;
+  position: absolute; 
   top: 0;
   left: 0;
-  z-index: 999; /* Increase z-index */
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,11 +21,12 @@
   padding: 1rem 8rem;
 }
 
+
 .menu {
-  position: fixed; /* Change to fixed to ensure it covers entire viewport */
+  position: fixed; 
   top: 0;
   left: 0;
-  z-index: 999; /* Ensure the menu is also on top */
+  z-index: 999; 
   height: 0;
   width: 100vw;
   display: flex;
@@ -37,7 +38,7 @@
 }
 
 .menu.open {
-  height: 100vh; /* Make sure it covers the whole screen when open */
+  height: 100vh; 
 }
 
 
@@ -53,9 +54,9 @@
   align-items: center;
   cursor: pointer;
   padding: 4px;
-  margin-right: 20px; /* Adjust spacing */
+  margin-right: 20px; 
 }
-/* CSS for close button */
+
 .close-menu-btn {
   position: absolute;
   top: 40px; 

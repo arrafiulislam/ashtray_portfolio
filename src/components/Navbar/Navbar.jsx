@@ -1,42 +1,37 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { Link as RouterLink } from 'react-router-dom'; // Import Link from react-router-dom for gallery link
+import { Link as ScrollLink } from 'react-scroll';
 import './Navbar.css';
 import logo from '../../assets/logo.png';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const navigate = useNavigate();
 
     const handleMenuClick = () => {
-        setMenuOpen(!menuOpen); // Toggle the state
+        setMenuOpen(!menuOpen);
     };
 
-    const handleLinkClick = (path) => {
-        setMenuOpen(false); // Close the menu when a link is clicked
-        navigate(path);  
+    const closeMenu = () => {
+        setMenuOpen(false);
     };
 
     const menu = [
-        { name: 'About Us', link: '/about' },
-        { name: 'Our Products', link: '/products' },
-        { name: 'Services', link: '/services' },
-        { name: 'FAQ', link: '/faq' },
-        { name: 'Contact Us', link: '/contact' }
+        { name: 'Portfolio', link: 'portfolio' },
+        { name: 'Services', link: 'services' },
+        { name: 'Testimonials', link: 'testimonials' },
+        { name: 'Contact Us', link: 'contact' },
+        { name: 'Gallery', link: '/gallerylayout', external: true }
     ];
-
-    const menuItems = menu.map((item, index) => (
-        <MenuItem key={index} delay={`${index * 0.1}s`} onClick={() => handleLinkClick(item.link)}>
-            {item.name}
-        </MenuItem>
-    ));
 
     return (
         <div>
             <div className="menu-container">
-                <div className="logo">
-                    <img className='nav-logo' src={logo} alt="Logo" /> 
-                    <div className='logo-name'>Ashtray <br />Photography</div>
-                </div> 
+                <a href="/"> <div className="logo">
+                    <img className="nav-logo" src={logo} alt="Logo" />
+                    <div className="logo-name">Focult Media</div>
+                </div></a>
+
+
                 <div className="social-icons">
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-instagram social-icon"></i>
@@ -50,13 +45,42 @@ const Navbar = () => {
                     <MenuButton open={menuOpen} onClick={handleMenuClick} />
                 </div>
             </div>
-            <Menu open={menuOpen} closeMenu={handleMenuClick}>{menuItems}</Menu> {/* Added closeMenu prop */}
+            <Menu open={menuOpen} closeMenu={closeMenu}>
+                {menu.map((item, index) => (
+                    item.external ? (
+                        <RouterLink
+                            key={index}
+                            to={item.link}
+                            onClick={closeMenu}
+                            className="menu-item-link"
+                        >
+                            <MenuItem delay={`${index * 0.1}s`}>
+                                {item.name}
+                            </MenuItem>
+                        </RouterLink>
+                    ) : (
+                        <ScrollLink
+                            key={index}
+                            to={item.link}
+                            smooth={true}
+                            duration={500}
+                            offset={-70}
+                            onClick={closeMenu}
+                            className="menu-item-link"
+                        >
+                            <MenuItem delay={`${index * 0.1}s`}>
+                                {item.name}
+                            </MenuItem>
+                        </ScrollLink>
+                    )
+                ))}
+            </Menu>
             <div className={`body ${menuOpen ? 'blur' : ''}`}></div>
         </div>
     );
 };
 
-const MenuItem = ({ delay, children, onClick }) => {
+const MenuItem = ({ delay, children }) => {
     const [hover, setHover] = useState(false);
 
     return (
@@ -65,7 +89,6 @@ const MenuItem = ({ delay, children, onClick }) => {
                 className={`menu-item ${hover ? 'hover' : ''}`}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
-                onClick={onClick}  
             >
                 {children}
             </div>
@@ -77,8 +100,11 @@ const Menu = ({ open, closeMenu, children }) => (
     <div className={`menu ${open ? 'open' : ''}`}>
         <div className="menu-list">
             {children}
-            
-            {open && <button className="close-menu-btn" onClick={closeMenu}><i class="fa-solid fa-xmark fa-lg"></i></button>}
+            {open && (
+                <button className="close-menu-btn" onClick={closeMenu}>
+                    <i className="fa-solid fa-xmark fa-lg"></i>
+                </button>
+            )}
         </div>
     </div>
 );
